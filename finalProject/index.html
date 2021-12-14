@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- author: Jesse Isaak-->
+<head>
+    <title>Jesse Isaak's Assignment01</title>
+    <meta   charset="utf-8">
+    <meta   name="viewport" 
+            content="initial-scale=1.0, width=device-width"/>
+    <link   rel="stylesheet" href="css/styles.css" media="all"/>
+    <script src='scripts/jquery-3.6.0.min.js' defer></script>
+    <script src="scripts/studentname.js" defer="defer"></script>
+    <script src="scripts/finalproject.js" defer="defer"></script>
+    
+</head>
+<body>
+   <div  id="wrapper">
+    <main>
+      <div class="gameContainer">
+        <div class="d-flex playerContainer">
+          <div class="score-container left">
+              <div class="aviContainer player">
+                <img id="playerAvi" class="hide2" src="images/han.png" alt="player01">
+              </div>
+              <button id="playerAviBtn" class="aviBtn off">Change Character</button>
+              <div class="screen">
+                <div class="center-y">
+                  <div class="score hide" id="outputP"></div>
+                </div>
+              </div>
+              <div class="d-flex space-arnd">
+                <div class="player-lights environmental "></div>
+                <div class="player-lights environmental "></div>
+                <div class="player-lights environmental "></div>
+             
+                <div class="d-flex">
+                  <div class="vent"></div>
+                  <div class="vent"></div>
+                  <div class="vent"></div>
+                  <div class="vent"></div>
+                  <div class="vent"></div>
+                  <div class="vent"></div>
+                  <div class="vent"></div>
+                  <div class="vent"></div>
+                  <div class="vent"></div>
+                </div>
+              </div>
+          </div>
+          <div id="player-dice" class="dice-container left hide2">
+            <img src="images/dice-0.png" alt="dice" id="playerDie1Img" class="die">
+            <img src="images/dice-0.png" alt="dice" id="playerDie2Img" class="die">
+          </div>
+        </div>
+        <div class="btnContainer centerPlate">
+          <button id="rollBtn" class="rollBtn">Roll Dice</button>
+          <div class="screen no-height">
+            <div class="round">
+              <div class="hide2" id="output"></div>
+            </div>
+          </div>
+          <button id="resetBtn" class="off">New Game</button>
+        </div>
+        <hr class="center-line">
+        <div class="cpuContainer">
+          <div class="d-flex column relative">
+            <div id="cpu-dice" class="dice-container right hide">
+              <img src="images/dice-0.png" alt="dice" id="cpuDie1Img" class="die">
+              <img src="images/dice-0.png" alt="dice" id="cpuDie2Img" class="die">
+            </div>
+            <div class="score-container right">
+              <div class="d-flex space-arnd">
+                <div class="d-flex">
+                  <div class="vent light"></div>
+                  <div class="vent light"></div>
+                  <div class="vent light"></div>
+                  <div class="vent light"></div>
+                  <div class="vent light"></div>
+                  <div class="vent light"></div>
+                  <div class="vent light"></div>
+                  <div class="vent light"></div>
+                  <div class="vent light"></div>
+                  <div class="vent light"></div>
+               
+                </div>
+                <div class="cpu-lights environmental "></div>
+                <div class="cpu-lights environmental "></div>
+                <div class="cpu-lights environmental "></div>
+              </div>
+              <div class="screen">
+                <div class="center-y">
+                  <div class="score hide" id="outputC"></div>
+                </div>
+              </div>
+              <button id="cpuAviBtn" class="aviBtn off">Change Opponent</button>
+              <div class="aviContainer cpu">
+                <img id="cpuAvi" class="hide2" src="images/greedo.png" alt="CPU">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer id="footer">
+    <div class="line">
+      <hr>
+    </div>
+    <div>
+        <h2 id="javascript_message">Hello</h2>
+    </div>
+    
+
+  </footer>
+
+
+
+</body>
+</html>
