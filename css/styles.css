@@ -125,8 +125,15 @@ button{
     0 0 5px 1px rgba(255, 255, 255, 0.5),
     0 0 20px 1px #87c9ff;
 	margin: auto 0;
+	cursor: pointer;
 }
 
+button:active {
+	background-color: rgb(179, 216, 247);
+	box-shadow:
+    0 0 5px 1px rgba(255, 255, 255, 0.5),
+    0 0 30px 1px rgb(208, 233, 253);
+}
 
 button:hover {
 	background-color: rgb(179, 216, 247);
@@ -169,12 +176,19 @@ button.rollBtn:hover {
 button.off{
 	background: linear-gradient( rgb(145, 150, 173) 0%, rgb(230, 228, 228) 100%);
 	padding: 15px 20px;
-	border: 3px #474747;
+	border: 3px #999;
 	border-style:outset;
 	border-radius: 10px;
 	box-shadow:
     0 0 20px 5px rgba(255, 255, 255, 0.2);
 	margin: auto 0;
+}
+
+button.off:hover {
+	background-color: rgb(179, 216, 247);
+	box-shadow:
+    0 0 5px 1px rgba(255, 255, 255, 0.5),
+    0 0 30px 1px rgb(208, 233, 253);
 }
 
 /* Classes */
@@ -200,7 +214,7 @@ button.off{
 	display:flex;
 	flex-wrap:wrap;	
 	flex-direction:column;
-	max-width: 500px;	
+	max-width: 503px;	
 	min-height:100vh;
 	margin: 0 auto;
 	width:100%;	
@@ -294,6 +308,9 @@ button.off{
 
 .screen{
 	background-color: #000;
+	background-image: url(/images/screen.png);
+	background-size:85%;
+	background-repeat: repeat;
 	border: 5px ridge #777;
 	border-radius: 10px;
 	margin: 20px 0;
@@ -326,21 +343,24 @@ button.off{
 	height: 70px;
 	padding: 10px 0;
 }
+
 .score-container{
 	width: 250px;
 	height: 700px;
 	background-color: #000000;
 	background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
 	border: 10px ridge #555;
-	border-radius: 20px;
+	border-radius: 50px;
 	z-index: 100;
 }
 
 
 .score-container.left{
 	padding: 20px;
-	border: 
-	10px ridge #555,
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: 10px ridge #555,
+	
 }
 
 .score-container.right{
@@ -350,6 +370,8 @@ button.off{
 	justify-content: flex-end;
 	color: rgb(235, 47, 47);
 	text-shadow: 0 0 40px rgb(235, 47, 47);
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 
 .dice-container{

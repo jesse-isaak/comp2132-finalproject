@@ -32,6 +32,7 @@ let roundCounter = 1;
 
 let timeoutHandler;
 
+
 powerOn();
 function powerOn(){
     timeoutHandler = setTimeout(function(){
@@ -65,7 +66,7 @@ function closeGame(){
     });
 }
 
-// Roll dice 
+// ROLL DICE
 outputP.innerHTML = `<p> Round: 0 </p>`;
 outputP.innerHTML += `<h2 class="aurebesh">${playerScore} </h2>`;
 outputC.innerHTML = `<p> Round: 0</p>`;
@@ -87,6 +88,7 @@ function rollDice(){
     cpuDie1 = Math.floor(Math.random() * 6) + 1;
     cpuDie2 = Math.floor(Math.random() * 6) + 1;
     
+    $('#rollBtn').removeClass("rollBtn").addClass('off');
     if(roundCounter > 4){
         resetGame();
     }else{
@@ -109,10 +111,15 @@ function rollDice(){
                     }, 1500);
 
                 }else{
-                    output.innerHTML = `<h3>Round: <span class="aurebesh">${roundCounter}</span> </h3>`;
+                    timeoutHandler = setTimeout(function(){
+                        output.innerHTML = `<h3>Round: <span class="aurebesh">${roundCounter}</span> </h3>`;
+                        $('#rollBtn').removeClass("off").addClass('rollBtn');
+                    }, 1000);
+    
                 } 
+
             }, 1400);
-        
+            
         }, 700);
     }
 }
@@ -146,7 +153,7 @@ function updateLights(){
             $('.cpu-lights').addClass('green');
             $('.player-lights').removeClass('blue green');
             $('.player-lights').addClass('red');
-        }else{
+        }else if (playerScore == cpuScore){
             $('.cpu-lights').removeClass('green red');
             $('.cpu-lights').addClass('blue');
             $('.player-lights').removeClass('red green');
@@ -278,7 +285,6 @@ function resetGame(){
     cpuDie1         = 0;
     cpuDie2         = 0;
 
-    $('#rollBtn').addClass("rollBtn").removeClass('off');
     $('#resetBtn').addClass("off").removeClass('resetBtn');
     updateDice();
     updateLights();
@@ -290,7 +296,7 @@ function resetGame(){
     outputC.innerHTML += `<h2 class="aurebesh"> ${cpuScore} </h2>`;
     timeoutHandler = setTimeout(function(){
         output.innerHTML = `<h3>Round: <span class="aurebesh">${roundCounter}</span> </h3>`;
-
+        $('#rollBtn').addClass("rollBtn").removeClass('off');
     }, 1500);
 }
 
