@@ -32,7 +32,7 @@ let roundCounter = 1;
 
 let timeoutHandler;
 
-
+// POWER ON
 powerOn();
 function powerOn(){
     timeoutHandler = setTimeout(function(){
@@ -47,23 +47,6 @@ function powerOn(){
             resetGame();
         },1800);
     }, 1400);
-}
-
-function lightsOn(){
-    $('.cpu-lights').addClass('blue').fadeOut(130).fadeIn(150);
-    $('.player-lights').addClass('blue').fadeOut(100).fadeIn(120).fadeOut(20).fadeIn(120);
-}
-
-function openGame(){
-    $('#wrapper').animate({
-        'max-width': "1200"
-    }, 2000);
-}
-
-function closeGame(){
-    $('#wrapper').animate({
-        'max-width': "500"
-    });
 }
 
 // ROLL DICE
@@ -124,6 +107,7 @@ function rollDice(){
     }
 }
 
+// ENVIRONMENTAL EFFECTS
 function updateLights(){
     if(roundCounter == 4){
         if(playerScore > cpuScore){
@@ -162,27 +146,28 @@ function updateLights(){
     }
 }
 
-
-function displayWinner(){
-    output.innerHTML = `<h3>GAME OVER</h3>`;
-    if(playerScore > cpuScore){
-        outputP.innerHTML += `<h4>${playerAvi}</h4><h3>wins!</h3>`;
-        outputC.innerHTML += `<h4>${cpuAvi}</h4><h3>loses!</h3>`;
-    }
-    if(playerScore < cpuScore){
-        outputP.innerHTML += `<h4>${playerAvi}</h4><h3>loses!</h3>`;
-        outputC.innerHTML += `<h4>${cpuAvi}</h4><h3>wins!</h3>`;
-    }else if (playerScore == cpuScore){
-    outputP.innerHTML += `<h3>Draw</h3>`;
-    outputC.innerHTML += `<h3>Draw</h3>`;
-    }
-    flashLights();
-}
-
 function flashLights(){
     $('.player-lights').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
     $('.cpu-lights').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 }
+
+function lightsOn(){
+    $('.cpu-lights').addClass('blue').fadeOut(130).fadeIn(150);
+    $('.player-lights').addClass('blue').fadeOut(100).fadeIn(120).fadeOut(20).fadeIn(120);
+}
+
+function openGame(){
+    $('#wrapper').animate({
+        'max-width': "1200"
+    }, 2000);
+}
+
+function closeGame(){
+    $('#wrapper').animate({
+        'max-width': "502"
+    });
+}
+
 
 // SCORING
 function scorePlayer(){
@@ -211,12 +196,27 @@ function scoreCpu(){
     cpuScore += cpuRound;
 }
 
-
 function updateScore(){
     outputP.innerHTML = `<p> Round: ${playerRound} </p>`;
     outputP.innerHTML += `<h2 class="aurebesh">${playerScore} </h2>`;
     outputC.innerHTML = `<p> Round: ${cpuRound} </p>`;
     outputC.innerHTML += `<h2 class="aurebesh"> ${cpuScore} </h2>`;
+}
+
+function displayWinner(){
+    output.innerHTML = `<h3>GAME OVER</h3>`;
+    if(playerScore > cpuScore){
+        outputP.innerHTML += `<h4>${playerAvi}</h4><h3>wins!</h3>`;
+        outputC.innerHTML += `<h4>${cpuAvi}</h4><h3>loses!</h3>`;
+    }
+    if(playerScore < cpuScore){
+        outputP.innerHTML += `<h4>${playerAvi}</h4><h3>loses!</h3>`;
+        outputC.innerHTML += `<h4>${cpuAvi}</h4><h3>wins!</h3>`;
+    }else if (playerScore == cpuScore){
+    outputP.innerHTML += `<h3>Draw</h3>`;
+    outputC.innerHTML += `<h3>Draw</h3>`;
+    }
+    flashLights();
 }
 
 // DICE
@@ -235,13 +235,11 @@ function updatePlayerDice(){
         $('#playerDie2Img').attr("src", pathToDie2).hide().fadeOut(300).fadeIn(100).fadeOut(100).fadeIn(120);
     }
     else{
-    const pathToDie1 = `images/dice-blue-${playerDie1}.png`;    
-    $('#playerDie1Img').attr("src", pathToDie1).hide().fadeOut(300).fadeIn(100).fadeOut(100).fadeIn(180);
-    
-
-    const pathToDie2 = `images/dice-blue-${playerDie2}.png`;    
-    $('#playerDie2Img').attr("src", pathToDie2).hide().fadeOut(240).fadeIn(100).fadeOut(130).fadeIn(100);
-    
+        const pathToDie1 = `images/dice-blue-${playerDie1}.png`;    
+        $('#playerDie1Img').attr("src", pathToDie1).hide().fadeOut(300).fadeIn(100).fadeOut(100).fadeIn(180);
+        
+        const pathToDie2 = `images/dice-blue-${playerDie2}.png`;    
+        $('#playerDie2Img').attr("src", pathToDie2).hide().fadeOut(240).fadeIn(100).fadeOut(130).fadeIn(100);
     }
 
 }
@@ -263,7 +261,6 @@ function updateCpuDice(){
 
         const pathToDie4 = `images/dice-blue-${cpuDie2}.png`;    
         $('#cpuDie2Img').attr("src", pathToDie4).hide().fadeOut(300).fadeIn(100).fadeOut(180).fadeIn(200);
-    
         }
 }
 
@@ -312,11 +309,8 @@ function closeDiceBox(){
 }
 
 
-
 // CHANGE CHARACTERS
-
-const imgs = ['han','leia','luke','chewie','ackbar','lando','greedo','boba','vader','palpatine'];
-
+const imgs = ['han','leia','luke','chewie','ackbar','lando','greedo','boba', 'bossk','vader','palpatine'];
 
 playerAviBtn.addEventListener('click', newAvatar);
 cpuAviBtn.addEventListener('click', newOpponent);
@@ -334,9 +328,8 @@ function newAvatar(){
     playerAvi = `${imgs[a]}`;
 
     $('#playerAvi').attr("src", `${pathToAvi+playerAvi}.png`).hide().hide().fadeOut(200).fadeIn(80).fadeOut(20).fadeIn(50);
-    $('#player-dice').removeClass('leia palpatine luke greedo han lando vader chewie ackbar boba');
-    $('#player-dice').addClass(`${playerAvi}`).hide().hide().fadeOut(200).fadeIn(80).fadeOut(20).fadeIn(50);;
-    
+    $('#player-dice').removeClass('leia palpatine luke greedo han lando vader chewie ackbar bossk boba');
+    $('#player-dice').addClass(`${playerAvi}`).hide().hide().fadeOut(200).fadeIn(80).fadeOut(20).fadeIn(50);; 
 }
 
 function newOpponent(){
@@ -350,6 +343,6 @@ function newOpponent(){
     cpuAvi = `${imgs[i]}`;
     
     $('#cpuAvi').attr("src", `${pathToAvi+cpuAvi}.png`).hide().hide().fadeOut(200).fadeIn(80).fadeOut(20).fadeIn(50);
-    $('#cpu-dice').removeClass('leia palpatine luke greedo han lando vader chewie ackbar boba');
+    $('#cpu-dice').removeClass('leia palpatine luke greedo han lando vader chewie ackbar bossk boba');
     $('#cpu-dice').addClass(`${cpuAvi}`).hide().hide().fadeOut(200).fadeIn(80).fadeOut(20).fadeIn(50);;
 }
