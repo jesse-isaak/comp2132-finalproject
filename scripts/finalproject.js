@@ -49,6 +49,27 @@ function powerOn(){
     }, 1400);
 }
 
+// SOUND EFFECTS
+const bloop = new sound("audio/bloop.wav");
+const bleep = new sound("audio/bleep.wav");
+const rising = new sound("audio/power-on.wav");
+const warble = new sound("audio/warble.wav");
+const womp = new sound("audio/fail.wav");
+const beepboop = new sound('audio/beepboop.wav')
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.currentTime = 0
+        this.sound.play();
+    }
+}
+
 // ROLL DICE
 outputP.innerHTML = `<p> Round: 0 </p>`;
 outputP.innerHTML += `<h2 class="aurebesh">${playerScore} </h2>`;
@@ -60,7 +81,7 @@ output.innerHTML = `<h3>Round: <span class="aurebesh">${roundCounter}</span> </h
 rollBtn.addEventListener('click', rollDice);
 
 function rollDice(){
-
+    
     console.log('rolling the dice');
     roundCounter++;
     outputP.innerHTML = ``;
@@ -75,6 +96,7 @@ function rollDice(){
     if(roundCounter > 4){
         resetGame();
     }else{
+        bloop.play();
         openDiceBox();
         timeoutHandler = setTimeout(function(){
             updateDice();
@@ -157,6 +179,7 @@ function lightsOn(){
 }
 
 function openGame(){
+    rising.play();
     $('#wrapper').animate({
         'max-width': "1200"
     }, 2000);
@@ -206,13 +229,16 @@ function updateScore(){
 function displayWinner(){
     output.innerHTML = `<h3>GAME OVER</h3>`;
     if(playerScore > cpuScore){
+        warble.play();
         outputP.innerHTML += `<h4>${playerAvi}</h4><h3>wins!</h3>`;
         outputC.innerHTML += `<h4>${cpuAvi}</h4><h3>loses!</h3>`;
     }
     if(playerScore < cpuScore){
+        womp.play();
         outputP.innerHTML += `<h4>${playerAvi}</h4><h3>loses!</h3>`;
         outputC.innerHTML += `<h4>${cpuAvi}</h4><h3>wins!</h3>`;
     }else if (playerScore == cpuScore){
+        warble.play();
     outputP.innerHTML += `<h3>Draw</h3>`;
     outputC.innerHTML += `<h3>Draw</h3>`;
     }
@@ -269,6 +295,7 @@ function updateCpuDice(){
 resetBtn.addEventListener('click', resetGame);
 
 function resetGame(){
+    beepboop.play();
     console.log('Reset Game')
     playerRound     = 0;
     cpuRound        = 0;
@@ -318,6 +345,7 @@ let a = 0;
 let i = 6;
 
 function newAvatar(){
+    bleep.play();
     if( a == imgs.length - 1){
         a = 0;
     }else{
@@ -333,6 +361,7 @@ function newAvatar(){
 }
 
 function newOpponent(){
+    bleep.play();
     if( i == imgs.length - 1){
         i = 0;
     }else{
