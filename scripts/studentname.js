@@ -1,1 +1,0 @@
-document.getElementById("javascript_message").innerHTML="Jesse Isaak";

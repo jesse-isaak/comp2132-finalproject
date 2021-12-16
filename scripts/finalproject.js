@@ -6,7 +6,7 @@ const h1            = document.getElementById("h1");
 const rollBtn       = document.getElementById('rollBtn');
 const resetBtn      = document.getElementById('resetBtn');
 const playerAviBtn  = document.getElementById('playerAviBtn');
-const cpuAviBtn  = document.getElementById('cpuAviBtn');
+const cpuAviBtn     = document.getElementById('cpuAviBtn');
 
 const playerDie1Img = document.getElementById('playerDie1Img');
 const playerDie2Img = document.getElementById('playerDie2Img');
@@ -14,8 +14,8 @@ const playerDie2Img = document.getElementById('playerDie2Img');
 const cpuDie1Img    = document.getElementById('cpuDie1Img');
 const cpuDie2Img    = document.getElementById('cpuDie2Img');
 
-let playerAvi   = 'han';
-let cpuAvi      = 'greedo';
+let playerAvi       = 'han';
+let cpuAvi          = 'greedo';
 
 let playerRound     = 0;
 let cpuRound        = 0;
@@ -50,23 +50,26 @@ function powerOn(){
 }
 
 // SOUND EFFECTS
-const bloop = new sound("audio/bloop.wav");
-const bleep = new sound("audio/bleep.wav");
-const rising = new sound("audio/power-on.wav");
-const warble = new sound("audio/warble.wav");
-const womp = new sound("audio/fail.wav");
-const beepboop = new sound('audio/beepboop.wav')
+const bloop     = new audioFx("audio/bloop.wav");
+const bleep     = new audioFx("audio/bleep.wav");
+const rising    = new audioFx("audio/power-on.wav");
+const warble    = new audioFx("audio/warble.wav");
+const womp      = new audioFx("audio/fail.wav");
+const beepboop  = new audioFx('audio/beepboop.wav');
+const laser     = new audioFx('audio/laser.wav');
+const losebleep  = new audioFx('audio/losingbleeps.wav');
+const winbleep     = new audioFx('audio/win-bleeps.wav');
 
-function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
+function audioFx(src) {
+    this.audioFx = document.createElement("audio");
+    document.body.appendChild(this.audioFx);
+    this.audioFx.src = src;
+    this.audioFx.style.display = "none";
+    this.audioFx.setAttribute("preload", "auto");
+    this.audioFx.setAttribute("controls", "none");
     this.play = function(){
-        this.sound.currentTime = 0
-        this.sound.play();
+        this.audioFx.currentTime = 0;
+        this.audioFx.play();
     }
 }
 
@@ -116,15 +119,13 @@ function rollDice(){
                     }, 1500);
 
                 }else{
+                    soundEffects();
                     timeoutHandler = setTimeout(function(){
                         output.innerHTML = `<h3>Round: <span class="aurebesh">${roundCounter}</span> </h3>`;
                         $('#rollBtn').removeClass("off").addClass('rollBtn');
                     }, 1000);
-    
-                } 
-
-            }, 1400);
-            
+                }
+            }, 1400);       
         }, 700);
     }
 }
@@ -168,6 +169,16 @@ function updateLights(){
     }
 }
 
+function soundEffects(){
+    if(playerRound > cpuRound){
+        winbleep.play();
+    }else if(playerRound < cpuRound){
+        losebleep.play();
+    }else if (playerScore == cpuScore){
+        laser.play();
+    }
+}
+
 function flashLights(){
     $('.player-lights').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
     $('.cpu-lights').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
@@ -187,7 +198,7 @@ function openGame(){
 
 function closeGame(){
     $('#wrapper').animate({
-        'max-width': "502"
+        'max-width': "503"
     });
 }
 
@@ -238,7 +249,7 @@ function displayWinner(){
         outputP.innerHTML += `<h4>${playerAvi}</h4><h3>loses!</h3>`;
         outputC.innerHTML += `<h4>${cpuAvi}</h4><h3>wins!</h3>`;
     }else if (playerScore == cpuScore){
-        warble.play();
+        laser.play();
     outputP.innerHTML += `<h3>Draw</h3>`;
     outputC.innerHTML += `<h3>Draw</h3>`;
     }
@@ -373,5 +384,5 @@ function newOpponent(){
     
     $('#cpuAvi').attr("src", `${pathToAvi+cpuAvi}.png`).hide().hide().fadeOut(200).fadeIn(80).fadeOut(20).fadeIn(50);
     $('#cpu-dice').removeClass('leia palpatine luke greedo han lando vader chewie ackbar bossk boba');
-    $('#cpu-dice').addClass(`${cpuAvi}`).hide().hide().fadeOut(200).fadeIn(80).fadeOut(20).fadeIn(50);;
+    $('#cpu-dice').addClass(`${cpuAvi}`).hide().hide().fadeOut(200).fadeIn(80).fadeOut(20).fadeIn(50);
 }

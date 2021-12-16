@@ -23,6 +23,7 @@ body{
 	color: gold;
 	text-shadow: 0 0 40px gold;
 }
+
 p{
 	font-family: 'nebula', sans-serif;
 	font-weight: 500;
@@ -63,6 +64,7 @@ h3{
 	letter-spacing: -0.1rem;
 	margin: 0px;
 }
+
 h4, h5, h6{
 	font-family: 'nebula';
     font-size: 1.3rem;
@@ -101,41 +103,19 @@ button{
 }
 
 button:active {
-	background-color: rgb(179, 216, 247);
-	box-shadow:
-    0 0 5px 1px rgba(255, 255, 255, 0.5),
-    0 0 30px 1px rgb(208, 233, 253);
+	background-color: $btn-color-blue;
 }
 
 button:hover {
-	background-color: rgb(179, 216, 247);
+	background-color: $btn-color-hover;
 	box-shadow:
     0 0 5px 1px rgba(255, 255, 255, 0.5),
     0 0 30px 1px rgb(208, 233, 253);
 }
 
-button.resetBtn{
-	background-color: #ff8787;
-	border: 3px outset #be5656;
-	box-shadow:
-    0 0 5px 1px rgba(255, 255, 255, 0.5),
-    0 0 20px 1px #ff8787;
-	margin: auto 0;
-}
-button.resetBtn:hover {
-	background-color: rgb(255, 181, 181);
-	box-shadow:
-    0 0 5px 1px rgba(255, 255, 255, 0.5),
-    0 0 20px 1px rgb(253, 208, 208);
-}
-
 button.rollBtn{
-	background-color: #a3ff87;
-	border: 3px outset #56be5f;
-	box-shadow:
-    0 0 5px 1px rgba(255, 255, 255, 0.5),
-    0 0 20px 1px #87ff8d;
-	margin: auto 0;
+	background-color: $btn-color-green;
+	@include box-glow($btn-color-green, #56be5f, #87ff8d);
 }
 
 button.rollBtn:hover {
@@ -164,7 +144,20 @@ button.off:hover {
 }
 
 
+
 /* Classes */
+
+.d-flex{
+    display:flex;
+}
+
+.space-btwn{
+	justify-content: space-between;
+}
+
+.space-arnd{
+	justify-content: space-around;
+}
 
 .center{
 	display: flex;
@@ -177,46 +170,6 @@ button.off:hover {
 	z-index:5;
 	width: 100%;
 	border: 5px groove #888;
-
-}
-
-/* IDs */
-
-
-#wrapper{
-	display:flex;
-	flex-wrap:wrap;	
-	flex-direction:column;
-	max-width: 503px;	
-	min-height:100vh;
-	margin: 0 auto;
-	width:100%;	
-	overflow:hidden;
-	margin-top: 60px;
-}
-#footer{
-	width:95%;
-	max-width: 800px;	
-	padding: 10px;
-	margin: 0 auto;
-	margin-top: 100px;
-	text-align:center;
-}
-
-
-
-/* DICE GAME */
-
-.d-flex{
-    display:flex;
-}
-
-.space-btwn{
-	justify-content: space-between;
-}
-
-.space-arnd{
-	justify-content: space-around;
 }
 
 .gameContainer{
@@ -263,6 +216,10 @@ button.off:hover {
 
 .score{
 	text-align: center;
+}
+
+.pointer{
+	cursor:pointer;
 }
 
 .hide, .hide2{
@@ -368,7 +325,7 @@ button.off:hover {
 .dice-container.right{
 	border-top: 5px $color-greedo solid;
 	border-left: 5px $color-greedo  solid;
-	border-bottom: 5px $color-greedoeecb  solid;
+	border-bottom: 5px $color-greedo  solid;
 	border-color: $color-greedo ;
     box-shadow: 0 0 10px $color-greedo ;
 	border-bottom-left-radius: 40px;
@@ -485,4 +442,27 @@ button.off:hover {
 
 .vent.light{
 	border: 3px ridge #444;
+}
+
+/* IDs */
+
+#wrapper{
+	display:flex;
+	flex-wrap:wrap;	
+	flex-direction:column;
+	max-width: 503px;	
+	min-height:100vh;
+	margin: 0 auto;
+	width:100%;	
+	overflow:hidden;
+	margin-top: 60px;
+}
+
+#footer{
+	width:100%;
+	max-width: 800px;	
+	padding: 50px;
+	margin: 0 auto;
+	margin-top: 100px;
+	text-align:center;
 }

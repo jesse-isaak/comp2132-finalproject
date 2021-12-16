@@ -452,9 +452,7 @@ button {
 }
 
 button:active {
-  background-color: #b3d8f7;
-  -webkit-box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5), 0 0 30px 1px #d0e9fd;
-          box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5), 0 0 30px 1px #d0e9fd;
+  background-color: #87c9ff;
 }
 
 button:hover {
@@ -463,26 +461,12 @@ button:hover {
           box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5), 0 0 30px 1px #d0e9fd;
 }
 
-button.resetBtn {
-  background-color: #ff8787;
-  border: 3px outset #be5656;
-  -webkit-box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5), 0 0 20px 1px #ff8787;
-          box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5), 0 0 20px 1px #ff8787;
-  margin: auto 0;
-}
-
-button.resetBtn:hover {
-  background-color: #ffb5b5;
-  -webkit-box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5), 0 0 20px 1px #fdd0d0;
-          box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5), 0 0 20px 1px #fdd0d0;
-}
-
 button.rollBtn {
+  background-color: #a3ff87;
   background-color: #a3ff87;
   border: 3px outset #56be5f;
   -webkit-box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5), 0 0 20px 1px #87ff8d;
           box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5), 0 0 20px 1px #87ff8d;
-  margin: auto 0;
 }
 
 button.rollBtn:hover {
@@ -510,52 +494,6 @@ button.off:hover {
 }
 
 /* Classes */
-.center {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.center-line {
-  position: absolute;
-  top: 48%;
-  z-index: 5;
-  width: 100%;
-  border: 5px groove #888;
-}
-
-/* IDs */
-#wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  max-width: 503px;
-  min-height: 100vh;
-  margin: 0 auto;
-  width: 100%;
-  overflow: hidden;
-  margin-top: 60px;
-}
-
-#footer {
-  width: 95%;
-  max-width: 800px;
-  padding: 10px;
-  margin: 0 auto;
-  margin-top: 100px;
-  text-align: center;
-}
-
-/* DICE GAME */
 .d-flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -571,6 +509,23 @@ button.off:hover {
 .space-arnd {
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.center-line {
+  position: absolute;
+  top: 48%;
+  z-index: 5;
+  width: 100%;
+  border: 5px groove #888;
 }
 
 .gameContainer {
@@ -625,6 +580,10 @@ button.off:hover {
 
 .score {
   text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .hide, .hide2 {
@@ -745,8 +704,8 @@ button.off:hover {
 
 .dice-container.right {
   border-top: 5px #a3eecb solid;
-  border-left: 5px #a3eecb  solid;
-  border-bottom: 5px #a3eecb  solid;
+  border-left: 5px #a3eecb solid;
+  border-bottom: 5px #a3eecb solid;
   border-color: #a3eecb;
   -webkit-box-shadow: 0 0 10px #a3eecb;
           box-shadow: 0 0 10px #a3eecb;
@@ -875,4 +834,32 @@ button.off:hover {
 
 .vent.light {
   border: 3px ridge #444;
+}
+
+/* IDs */
+#wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 503px;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+#footer {
+  width: 100%;
+  max-width: 800px;
+  padding: 50px;
+  margin: 0 auto;
+  margin-top: 100px;
+  text-align: center;
 }
