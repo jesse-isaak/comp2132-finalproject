@@ -355,10 +355,10 @@ button.off:hover {
 }
 
 .dice-container.left{
-	border-top: 5px goldenrod solid;
-	border-right: 5px goldenrod solid;
-	border-bottom: 5px goldenrod solid;
-	box-shadow: 0 0 10px goldenrod;
+	border-top: 5px $color-han solid;
+	border-right: 5px $color-han solid;
+	border-bottom: 5px $color-han solid;
+	box-shadow: 0 0 10px $color-han;
 	border-bottom-right-radius: 80px;
 	border-top-right-radius: 40px;
 	padding: 0px;
@@ -366,11 +366,11 @@ button.off:hover {
 }
 
 .dice-container.right{
-	border-top: 5px #a3eecb solid;
-	border-left: 5px #a3eecb  solid;
-	border-bottom: 5px #a3eecb  solid;
-	border-color: #a3eecb ;
-    box-shadow: 0 0 10px #a3eecb ;
+	border-top: 5px $color-greedo solid;
+	border-left: 5px $color-greedo  solid;
+	border-bottom: 5px $color-greedoeecb  solid;
+	border-color: $color-greedo ;
+    box-shadow: 0 0 10px $color-greedo ;
 	border-bottom-left-radius: 40px;
 	border-top-left-radius: 80px;
 	padding: 0px;
@@ -380,12 +380,12 @@ button.off:hover {
 }
 
 .dice-container.leia{
-	border-color: rgb(175, 139, 233);
-	box-shadow: 0 0 10px rgb(175, 139, 233);
+	border-color: $color-leia;
+	box-shadow: 0 0 10px $color-leia;
 }
 .dice-container.palpatine{
-	border-color: #945aff;
-	box-shadow: 0 0 10px #945aff;
+	border-color: $color-palpatine;
+	box-shadow: 0 0 10px $color-palpatine;
 }
 
 .dice-container.vader{
@@ -394,43 +394,43 @@ button.off:hover {
 }
 
 .dice-container.chewie{
-	border-color: greenyellow;
-	box-shadow: 0 0 10px greenyellow;
+	border-color: $color-chewie;
+	box-shadow: 0 0 10px $color-chewie;
 }
 
 .dice-container.lando{
-	border-color: lavender;
-	box-shadow: 0 0 10px lavender;
+	border-color: $color-lando;
+	box-shadow: 0 0 10px $color-lando;
 }
 
 .dice-container.luke{
-	border-color: rgb(139, 183, 233);
-	box-shadow: 0 0 10px rgb(139, 183, 233);
+	border-color: $color-luke;
+	box-shadow: 0 0 10px $color-luke;
 }
 
 .dice-container.ackbar{
-	border-color: orange;
-	box-shadow: 0 0 10px orange;
+	border-color: $color-ackbar;
+	box-shadow: 0 0 10px $color-ackbar;
 }
 
 .dice-container.greedo{
-	border-color: #a3eecb;
-	box-shadow: 0 0 10px #a3eecb;
+	border-color: $color-greedo;
+	box-shadow: 0 0 10px $color-greedo;
 }
 
 .dice-container.han{
-	border-color: goldenrod;
-	box-shadow: 0 0 10px goldenrod;
+	border-color: $color-han;
+	box-shadow: 0 0 10px $color-han;
 }
 
 .dice-container.boba{
-	border-color: #4ea028;
-	box-shadow: 0 0 10px #4ea028;
+	border-color: $color-boba;
+	box-shadow: 0 0 10px $color-boba;
 }
 
 .dice-container.bossk{
-	border-color: #f8eb2f;
-	box-shadow: 0 0 10px #f8eb2f;
+	border-color: $color-bossk;
+	box-shadow: 0 0 10px $color-bossk;
 }
 
 
